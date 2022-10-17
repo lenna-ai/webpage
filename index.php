@@ -6,13 +6,27 @@
 
     $arr   = $_GET;
     $key   = array_keys($arr);
+    $integrationId = $_GET['integrationId'] ?? null;
+    $userId = $_GET['userId'] ?? null;
 
-    if (count($arr)!=1 || $key[0]!="id"  )
+    if (count($arr)<1 || $key[0]!="id"  )
     {
         echo "Access forbidden.";
         return;
     }
+    $param = [
+        $appid,
+        $integrationId,
+        $userId,
+    ];
+    $par = "";
+    foreach ($param as $d) {
+        $par .= "'".$d."',";
+    }
 
+    $par = rtrim($par,',');
+    // echo $par;
+    // return;
 ?>
 
 <!DOCTYPE html>
@@ -107,12 +121,12 @@
         .lenna-message-content.lenna-d-flex {
             min-width: 100% !important;
         }
-.lenna-message-image {
-    width: 250px !important;
-    border-radius: 15px;
-    height: auto !important;
-    margin: -3px -10px -3px -10px !important;
-}
+        .lenna-message-image {
+            width: 250px !important;
+            border-radius: 15px;
+            height: auto !important;
+            margin: -3px -10px -3px -10px !important;
+        }
         .lenna-message-container p , .lenna-message-content span,#lenna-webchat span,#lenna-webchat span[data-v-f1f83ede]{
             /* font-family: "HK Grotesk" !important; */
         }      
@@ -127,7 +141,7 @@
 </head>
 <body>
     <script>
-        var lennawebchat = document.createElement('script'); lennawebchat.src = "https://app.lenna.ai/webchat/lenna-init.js";var app = document.createElement('script');app.src = "https://app.lenna.ai/webchat/app.js";document.head.prepend(lennawebchat);document.head.prepend(app);lennawebchat.onload = function () {LennaWebchatInit('<?php echo $appid;?>')};
+        var lennawebchat = document.createElement('script'); lennawebchat.src = "https://v3.lenna.ai/webchat/lenna-init.js";var app = document.createElement('script');app.src = "https://v3.lenna.ai/webchat/app.js";document.head.prepend(lennawebchat);document.head.prepend(app);lennawebchat.onload = function () {LennaWebchatInit(<?= $par;?>)};
     </script>
 </body>
 </html>
