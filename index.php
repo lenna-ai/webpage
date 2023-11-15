@@ -63,7 +63,7 @@
 				const inter = setInterval(() => {
 					const target = document.getElementById('ln-chat-scroller');
 					if (target) {
-						target.style.height = 'calc(100% - 245px)'
+						target.style.height = 'calc(100% - 245px) !important'
 					}
 				}, 100)
 			}
