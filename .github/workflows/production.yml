@@ -1,0 +1,67 @@
+name: Deployment Webpage V3 Prod
+
+on:
+  push:
+    branches: [ v3/webpage-new ]
+
+jobs:
+  omni-backend-deployment:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: shivammathur/setup-php@b7d1d9c9a92d8d8463ce36d7f60da34d461724f8
+      with:
+        php-version: '7.4'
+
+    - uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+    - name: Check v3-lenna-ai service url
+      uses: jtalk/url-health-check-action@v1.2
+      with:
+        url: https://v3.lenna.ai/
+        max-attempts: 3
+        retry-delay: 5s
+
+    - name: Change own permission omni backend to 'admin'
+      uses: appleboy/ssh-action@master
+      with:
+        host: 'v3.lenna.ai'
+        username: ${{ secrets.SSH_USERNAME_ADMIN }}
+        key: ${{ secrets.PLATFORM_DEV_RSA_KEY }}
+        port: ${{ secrets.SSH_PORT_DEV }}
+        script: |
+          cd /var/www/html/v3.lenna.ai
+          sudo chown -R admin:admin webpage-new
+          exit
+
+    - name: Deploy to platform instance
+      uses: appleboy/ssh-action@master
+      with:
+        host: 'v3.lenna.ai'
+        username: ${{ secrets.SSH_USERNAME_ADMIN }}
+        key: ${{ secrets.PLATFORM_DEV_RSA_KEY }}
+        port: ${{ secrets.SSH_PORT_DEV }}
+        script: |
+          cd /var/www/html/v3.lenna.ai/webpage-new
+          git checkout v3/webpage-new
+          git fetch
+          git pull origin v3/webpage-new
+          exit
+
+    # - name: Install Dependencies
+    #   run: composer install
+
+    - name: Change own permission omni backend to www-data
+      uses: appleboy/ssh-action@master
+      with:
+        host: 'v3.lenna.ai'
+        username: ${{ secrets.SSH_USERNAME_ADMIN }}
+        key: ${{ secrets.PLATFORM_DEV_RSA_KEY }}
+        port: ${{ secrets.SSH_PORT_DEV }}
+        script: |
+          cd /var/www/html/v3.lenna.ai
+          sudo chown -R www-data:www-data webpage-new
+          exit
