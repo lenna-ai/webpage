@@ -59,13 +59,13 @@
 		<script>
 			const device = new MobileDetect(window.navigator.userAgent);
 			
+            const inter = setInterval(() => {
+                const target = document.getElementById('ln-chat-scroller');
+                if (target) {
+                    target.style.height = 'calc(100% - 245px) !important'
+                }
+            }, 100)
 			if (device.mobile()) {
-				const inter = setInterval(() => {
-					const target = document.getElementById('ln-chat-scroller');
-					if (target) {
-						target.style.height = 'calc(100% - 245px) !important'
-					}
-				}, 100)
 			}
 		</script>
     <script>
