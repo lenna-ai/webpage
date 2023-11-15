@@ -52,6 +52,9 @@
         #ln-caption-bubble, #ln-bubble-trigger {
             display: none;
         }
+        .webpage-force-height {
+            height: calc(100% - 245px) !important;
+        }
     </style>
 </head>
 <body>
@@ -59,15 +62,13 @@
 		<script>
 			const device = new MobileDetect(window.navigator.userAgent);
 			
-            const inter = setInterval(() => {
-                const target = document.getElementById('ln-chat-scroller');
-                console.log('ATTEMPT__')
-                if (target) {
-                    target.style.height = 'calc(100% - 245px) !important'
-                    console.log('DONE__')
-                }
-            }, 100)
-			if (device.mobile()) {
+            if (device.mobile()) {
+                const inter = setInterval(() => {
+                    const target = document.getElementById('ln-chat-scroller');
+                    if (target) {
+                        target.classList.add('webpage-force-height')
+                    }
+                }, 100)
 			}
 		</script>
     <script>
