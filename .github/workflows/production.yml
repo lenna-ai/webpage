@@ -64,6 +64,4 @@ jobs:
         script: |
           cd /var/www/html/v3.lenna.ai
           sudo chown -R www-data:www-data webpage-new
-          sudo chmod -R 777 app/storage
-          sudo chmod -R 777 app/bootstrap/cache
           exit
