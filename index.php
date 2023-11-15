@@ -52,19 +52,6 @@
     </style>
 </head>
 <body>
-    <!-- <script src="mobile-detect.min.js"></script>
-    <script>
-        const device = new MobileDetect(window.navigator.userAgent);
-        
-        if (device.mobile()) {
-            const inter = setInterval(() => {
-                const target = document.getElementById('ln-chat-scroller');
-                if (target) {
-                    target.classList.add('webpage-force-height')
-                }
-            }, 100)
-        }
-    </script> -->
     <script>
 		var lennawebchat = document.createElement('script'); lennawebchat.src = "https://v3.lenna.ai/chat/lenna-init.js";var app = document.createElement('script');app.src = "https://v3.lenna.ai/chat/app.js";document.head.prepend(lennawebchat);document.head.prepend(app);lennawebchat.onload = function () {LennaWebchatInit('lejRej','9aAOdv')}; 
     </script>
