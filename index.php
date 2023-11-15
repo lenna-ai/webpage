@@ -55,14 +55,16 @@
     </style>
 </head>
 <body>
-    <script src="/mobile-detect.min.js"></script>
+    <script src="mobile-detect.min.js"></script>
 		<script>
 			const device = new MobileDetect(window.navigator.userAgent);
 			
             const inter = setInterval(() => {
                 const target = document.getElementById('ln-chat-scroller');
+                console.log('ATTEMPT__')
                 if (target) {
                     target.style.height = 'calc(100% - 245px) !important'
+                    console.log('DONE__')
                 }
             }, 100)
 			if (device.mobile()) {
