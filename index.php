@@ -35,10 +35,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
     <title>Chat Page New</title>
-    <!-- <style type="text/css">
+    <style type="text/css">
        #main-window {
             width: 100% !important;
-            height: 100vh !important;
+            height: 100% !important;
             left: 0 !important;
             top: 0 !important;
             border-radius: 0 !important;
@@ -46,16 +46,10 @@
             transform: translateY(0);
             opacity: 1 !important;
         }
-        #ln-chat-scroller {
-            height: calc(100% - 190px);
-        }
         #ln-caption-bubble, #ln-bubble-trigger {
             display: none;
         }
-        .webpage-force-height {
-            height: calc(100% - 245px) !important;
-        }
-    </style> -->
+    </style>
 </head>
 <body>
     <!-- <script src="mobile-detect.min.js"></script>
