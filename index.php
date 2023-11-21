@@ -49,6 +49,9 @@
         #ln-caption-bubble, #ln-bubble-trigger {
             display: none;
         }
+        .ln-dropdown-menu-history-minimize {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
