@@ -49,8 +49,12 @@
         #ln-caption-bubble, #ln-bubble-trigger {
             display: none;
         }
-        .ln-dropdown-menu-history-minimize {
-            display: none !important;
+        .ln-dropdown-menu-history-minimize, .ln-dropdown-menu-minimize {
+            opacity: 0;
+            cursor: default;
+        }
+        .ln-loader-initialization {
+            display: none;
         }
     </style>
 </head>
