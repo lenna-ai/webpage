@@ -1,13 +1,13 @@
 <?php
-    $appid =$_GET['id'];
+    $appid =strip_tags($_GET['id']);
     if ($appid=="PRIMAYA"){
         $appid = '7e5LZd';
     }
 
     $arr   = $_GET;
     $key   = array_keys($arr);
-    $integrationId = $_GET['integrationId'] ?? null;
-    $userId = $_GET['userId'] ?? null;
+    $integrationId = strip_tags($_GET['integrationId']) ?? null;
+    $userId = strip_tags($_GET['userId']) ?? null;
 
     if (count($arr)<1 || $key[0]!="id"  )
     {
