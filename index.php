@@ -37,25 +37,34 @@
     <title>Chat Page New</title>
     <style type="text/css">
        #main-window {
-            width: 100% !important;
-            height: 100% !important;
-            left: 0 !important;
-            top: 0 !important;
-            border-radius: 0 !important;
-            display: block;
-            transform: translateY(0);
-            opacity: 1 !important;
-        }
-        #ln-caption-bubble, #ln-bubble-trigger {
-            display: none;
-        }
-        .ln-dropdown-menu-history-minimize, .ln-dropdown-menu-minimize {
-            opacity: 0;
-            cursor: default;
-        }
-        .ln-loader-initialization {
-            display: none;
-        }
+        width: 100% !important;
+        height: 100% !important;
+        left: 0 !important;
+        top: 0 !important;
+        border-radius: 0 !important;
+        display: block;
+        transform: translateY(0);
+        opacity: 1 !important;
+      }
+      #ln-caption-bubble,
+      #ln-bubble-trigger {
+        display: none;
+      }
+      .ln-dropdown-menu-history-minimize,
+      .ln-dropdown-menu-minimize {
+        opacity: 0;
+        cursor: default;
+      }
+      .ln-loader-initialization {
+        display: none;
+      }
+      #ln-header-chat {
+        display: none;
+      }
+      #ln-chat-scroller {
+        margin-top: 0 !important;
+        height: calc(100% - 110px) !important;
+      }
     </style>
 </head>
 <body>
