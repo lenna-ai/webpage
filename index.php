@@ -141,7 +141,7 @@
 </head>
 <body>
     <script>
-        var lennawebchat = document.createElement('script'); lennawebchat.src = "https://v3.lenna.ai/webchat/lenna-init.js";var app = document.createElement('script');app.src = "https://v3.lenna.ai/webchat/app.js";document.head.prepend(lennawebchat);document.head.prepend(app);lennawebchat.onload = function () {LennaWebchatInit(<?= $par;?>)};
+        var lennawebchat = document.createElement('script'); lennawebchat.src = "http://10.22.10.66/webchat/dist/lenna-init.js";var app = document.createElement('script');app.src = "http://10.22.10.66/webchat/dist/app.js";document.head.prepend(lennawebchat);document.head.prepend(app);lennawebchat.onload = function () {LennaWebchatInit(<?= $par;?>)};
     </script>
 </body>
 </html>
