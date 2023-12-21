@@ -58,13 +58,14 @@
       .ln-loader-initialization {
         display: none;
       }
-      #ln-header-chat {
+      /** Commented, siapa tau dibutuhkan lagi */
+      /* #ln-header-chat {
         display: none;
       }
       #ln-chat-scroller {
         margin-top: 0 !important;
         height: calc(100% - 110px) !important;
-      }
+      } */
     </style>
 </head>
 <body>
