@@ -92,7 +92,7 @@
 
     script.onload = function () {
       // LennaWebchatInit("lejRRe")
-      LennaWebchatInit(id, integrationId);
+      LennaWebchatInit(idApp, integrationId);
     };
     </script>
 </body>
