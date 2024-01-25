@@ -70,7 +70,18 @@
 </head>
 <body>
     <script>
-		var lennawebchat = document.createElement('script'); lennawebchat.src = "https://v3.lenna.ai/chat/lenna-init.js";var app = document.createElement('script');app.src = "https://v3.lenna.ai/chat/app.js";document.head.prepend(lennawebchat);document.head.prepend(app);lennawebchat.onload = function () {LennaWebchatInit('lejRej','9aAOdv')}; 
+		var lennawebchat = document.createElement('script'); 
+    lennawebchat.src = "https://v3.lenna.ai/chat/lenna-init.js";
+    var app = document.createElement('script');
+    app.src = "https://v3.lenna.ai/chat/app.js";
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id") || "lejRej";
+    const integrationId = urlParams.get("integrationId") || "9aAOdv";
+    document.head.prepend(lennawebchat);
+    document.head.prepend(app);
+    lennawebchat.onload = function () {
+      LennaWebchatInit(id, integrationId)
+    }; 
     </script>
 </body>
 </html>
