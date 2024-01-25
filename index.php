@@ -85,12 +85,10 @@
 
     if (idApp) {
       const isValidCredential = idApp === appId;
-      if (!isValidCredential) {
+      const isSameIntegration = integrationId === localIntegrationId
+      if (!isValidCredential || !isSameIntegration) {
         localStorage.removeItem("webchat_user");
-        const isSameIntegration = integrationId === localIntegrationId
-        if (!isSameIntegration) {
-          localStorage.removeItem('lenna_initialize');
-        }
+        localStorage.removeItem('lenna_initialize');
       }
     }
 
