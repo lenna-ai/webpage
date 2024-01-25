@@ -70,30 +70,30 @@
 </head>
 <body>
     <script>
-		var lennawebchat = document.createElement('script'); 
-    lennawebchat.src = "https://v3.lenna.ai/chat/lenna-init.js";
-    var app = document.createElement('script');
-    app.src = "https://v3.lenna.ai/chat/app.js";
+		const script = document.createElement("script");
+    script.src = "https://v3.lenna.ai/chat/lenna-init.js";
+    document.head.appendChild(script);
+
     const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get("id") || "lejRej";
+    const idApp = urlParams.get("id") || "lejRej";
     const integrationId = urlParams.get("integrationId") || "9aAOdv";
 
+    /** App id from localstore */
     const appRaw = localStorage.getItem("lenna_initialize");
-    const appObj = JSON.parse(appRaw || "{}");
-    const appId = appObj?.appId?.hashed;
+    const app = JSON.parse(appRaw || "{}");
+    const appId = app?.appId?.hashed;
 
-    if (id) {
-      const isValidCredential = id === appId;
+    if (idApp) {
+      const isValidCredential = idApp === appId;
       if (!isValidCredential) {
         localStorage.removeItem("webchat_user");
       }
     }
 
-    document.head.prepend(lennawebchat);
-    document.head.prepend(app);
-    lennawebchat.onload = function () {
-      LennaWebchatInit(id, integrationId)
-    }; 
+    script.onload = function () {
+      // LennaWebchatInit("lejRRe")
+      LennaWebchatInit(id, integrationId);
+    };
     </script>
 </body>
 </html>
