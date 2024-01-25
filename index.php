@@ -70,22 +70,27 @@
 </head>
 <body>
     <script>
-		var lennawebchat = document.createElement('script'); 
+		const lennawebchat = document.createElement('script'); 
     lennawebchat.src = "https://v3.lenna.ai/chat/lenna-init.js";
-    var app = document.createElement('script');
+    const app = document.createElement('script');
     app.src = "https://v3.lenna.ai/chat/app.js";
     const urlParams = new URLSearchParams(window.location.search);
     const idApp = urlParams.get("id") || "lejRej";
     const integrationId = urlParams.get("integrationId") || "9aAOdv";
-
+    
     const appRaw = localStorage.getItem("lenna_initialize");
     const appObj = JSON.parse(appRaw || "{}");
     const appId = appObj?.appId?.hashed;
+    const localIntegrationId = appObj.integrationId
 
     if (idApp) {
       const isValidCredential = idApp === appId;
       if (!isValidCredential) {
         localStorage.removeItem("webchat_user");
+        const isSameIntegration = integrationId === localIntegrationId
+        if (!isSameIntegration) {
+          localStorage.removeItem('lenna_initialize');
+        }
       }
     }
 
