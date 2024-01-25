@@ -79,8 +79,8 @@
     const integrationId = urlParams.get("integrationId") || "9aAOdv";
 
     const appRaw = localStorage.getItem("lenna_initialize");
-    const app = JSON.parse(appRaw || "{}");
-    const appId = app?.appId?.hashed;
+    const appObj = JSON.parse(appRaw || "{}");
+    const appId = appObj?.appId?.hashed;
 
     if (id) {
       const isValidCredential = id === appId;
