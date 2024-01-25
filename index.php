@@ -90,7 +90,7 @@
     }
 
     document.head.prepend(lennawebchat);
-    document.head.prepend(appObj);
+    document.head.prepend(app);
     lennawebchat.onload = function () {
       LennaWebchatInit(idApp, integrationId)
     }; 
