@@ -77,6 +77,18 @@
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id") || "lejRej";
     const integrationId = urlParams.get("integrationId") || "9aAOdv";
+
+    const appRaw = localStorage.getItem("lenna_initialize");
+    const app = JSON.parse(appRaw || "{}");
+    const appId = app?.appId?.hashed;
+
+    if (id) {
+      const isValidCredential = id === appId;
+      if (!isValidCredential) {
+        localStorage.removeItem("webchat_user");
+      }
+    }
+
     document.head.prepend(lennawebchat);
     document.head.prepend(app);
     lennawebchat.onload = function () {
